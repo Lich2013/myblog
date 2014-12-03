@@ -8,7 +8,7 @@
 class LoginController extends \BaseController{
 
     private $rules;
-    private static  $salt = 'longzy';
+    private static $salt = 'longzy';
 
     public function index(){
 
@@ -17,7 +17,8 @@ class LoginController extends \BaseController{
 
     public function verify(){
 
-        $this->rules = array('username'=>'required',
+        $this->rules = array(
+                             'username'=>'required',
                              'password'=>'required|min:6|max:18',
                             );
 
@@ -33,7 +34,8 @@ class LoginController extends \BaseController{
         else
         {
 
-          if(Auth::attempt(array(
+          if(Auth::attempt(
+                            array(
                                 'username'=>$data['username'],
                                 'password'=>$data['password'].self::$salt,
                                 )

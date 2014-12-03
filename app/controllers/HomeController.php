@@ -24,7 +24,7 @@ class HomeController extends \BaseController {
                         ->orderBy('id','desc')
                         ->take(3)
                         ->get();
-        $page = DB::table('passage')->paginate(1);
+        //$page = DB::table('passage')->paginate(1);
 
         $i = 0;
         foreach( $stdarray1 as $v)
