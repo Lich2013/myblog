@@ -45,6 +45,7 @@ class PassageController extends \BaseController {
             ->get();
         $passage_data[0]->tag = $tag_data;
 
+
         return View::make('passage')->with('data', $passage_data);
     }
 } 
