@@ -106,7 +106,7 @@ class PassageManageController extends AdminController{
         //预览文章(ajax)
         public function viewPassage()
         {
-            if(Request::ajax())
+            if(Request::ajax() && Request::json())
             {
                 $md_passage = Input::json();
                 $md_passage = json_decode($md_passage);
@@ -118,7 +118,7 @@ class PassageManageController extends AdminController{
                 return Response::json(array('error'=>'false'));
         }
 
-
+        //删除文章
         public function deletePassage($url_path)
         {
             if($url_path == null)
