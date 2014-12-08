@@ -36,7 +36,7 @@ class PassageController extends \BaseController {
     {
         $passage_data = DB::table('passage')
             ->where('url_path', '=' , $url)
-            ->select('id', 'title', 'content', 'time')
+            ->select('id', 'title', 'content', 'time', 'cover_path')
             ->get();
         $tag_data = DB::table('tag_passage')
             ->where('passage_id', '=', $passage_data[0]->id)
