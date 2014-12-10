@@ -2,6 +2,7 @@
 
 class Comment extends Eloquent{
 
+     protected $fillable = array('name', 'content', 'email');
     public function saveComment($comment)
     {
        $validator = Validator::make(
