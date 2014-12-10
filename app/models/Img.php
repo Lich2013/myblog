@@ -11,6 +11,7 @@
 
 class Img extends Eloquent
 {
+    protected $guarded = array('id');
     //查看图片
     public function viewImg()
     {
