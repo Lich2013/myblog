@@ -27,6 +27,29 @@ class Comment extends Eloquent{
     }
 
     //递归取评论和评论的回复(分页)
-    public function getComment(){}
+    public function getComment($page)
+    {
+        $perpage = 20;
+        $skip = $perpage*($page_id-1);      
+        $comment_father_list[] = DB::table('comment')
+                                    ->orderBy('id', 'desc')
+                                    ->where('father_id', '=', '0')
+                                    ->skip($skip)
+                                    ->take($perpage)
+                                    ->get();
+        foreach ($comment_father_list as $value) 
+        {           
+         $comment_son_list[] = DB::table('comment')
+                                ->where('father_id', '=', $value['id'])
+                                ->orderBy('id', 'desc')
+                                ->get();
+        }
+        $list['comment'] = array('comment' => $comment_father_list, 'reply' => $comment_son_list );
+        $page = DB::table('comment')->orderBy('id', 'desc')->paginate($perpage);
+        $list['page'] = $page;
+        return $list;
+    }
+
+    //
 
 }
