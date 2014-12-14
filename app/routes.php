@@ -42,6 +42,6 @@ Route::get('admin/viewPassage', array('before' => 'auth', 'uses' => "PassageMana
 //删除文章
 Route::get('admin/PassageDelete/{url_path}', array('before' => 'auth', 'uses' => "PassageManageController@deletePassage"));
 
-//文章
-
+//首页图片轮播管理
+Route::get('admin/img', array('before' => 'auth', 'uses' => "ImgManageController@index"));
 
