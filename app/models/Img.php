@@ -11,15 +11,13 @@
 
 class Img extends Eloquent
 {
+    protected $table = 'img';
     protected $guarded = array('id');
     //查看图片
     public function viewImg()
     {
-        if ($img_data = DB::table('img')->get()) {
-            return $img_data;
-        } else {
-            return false;
-        }
+        $img_data = DB::table('img')->get();
+        return $img_data;
     }
 
     //编辑图片

@@ -2,7 +2,9 @@
 
 class Comment extends Eloquent{
 
-     protected $fillable = array('name', 'content', 'email');
+    protected $fillable = array('name', 'content', 'email');
+
+    //保存评论
     public function saveComment($comment)
     {
        $validator = Validator::make(
@@ -27,7 +29,7 @@ class Comment extends Eloquent{
     }
 
     //递归取评论和评论的回复(分页)
-    public function getComment($page)
+    public function getComment($page_id)
     {
         $perpage = 20;
         $skip = $perpage*($page_id-1);      
