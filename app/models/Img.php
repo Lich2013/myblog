@@ -13,6 +13,7 @@ class Img extends Eloquent
 {
     protected $table = 'img';
     protected $guarded = array('id');
+    public $timestamps = false;
     //查看图片
     public function viewImg()
     {
