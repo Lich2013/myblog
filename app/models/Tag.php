@@ -16,6 +16,7 @@
 class Tag extends Eloquent {
 
          protected $fillable = array('tag');
+         public $timestamps = false;
         //添加标签
         public function addTag($tag)
         {

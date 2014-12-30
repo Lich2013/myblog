@@ -3,7 +3,7 @@
 
 @section('webtitle')
 <title>Myblog</title>
-@show
+@stop
 
 
 @section('title')

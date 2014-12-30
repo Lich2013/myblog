@@ -3,6 +3,7 @@
 class Comment extends Eloquent{
 
     protected $fillable = array('name', 'content', 'email');
+    public $timestamps = false;
 
     //保存评论
     public function saveComment($comment)
