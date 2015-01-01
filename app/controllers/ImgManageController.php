@@ -10,13 +10,12 @@ class ImgManageController extends AdminController {
         public function index()
         {
             $data = Img::all();
-            return $data;
-            //return View::make('imageManageList')->with('data', $data);
+            return View::make('imageManageList')->with('data', $data);
         }
 
         public function del($id)
         {
-            if(Img::deleted($id))
+            if(Img::destory($id))
                 return true;
             else
                 return false;
@@ -27,9 +26,10 @@ class ImgManageController extends AdminController {
            foreach($id as $key => $value)
            {
                $img = Img::find($value);
-               $img->save($path[$key]);
-               $img->save($status[$key]);
-               $img->save($alt[$key]);
+               $img->path = $path[$key];
+               $img->status = $status[$key];
+               $img->alt = $alt[$key];
+               $img->save();
            }
             return $this->index();
         }
