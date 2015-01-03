@@ -21,7 +21,8 @@ class VerifyCodeController extends BaseController{
     //输出
     public function output()
     {
-
+        $img = $this->code();
+        return $img;
     }
 
     //验证
@@ -54,6 +55,7 @@ class VerifyCodeController extends BaseController{
     }
 
     //制作
+    //TODO:裁剪还是覆盖?
     private function code()
     {
         $id_arr = DB::table('code')->select('id')->get();
@@ -62,10 +64,13 @@ class VerifyCodeController extends BaseController{
 
         $path = DB::table('code')->select('path')->where('id', '=', $id);
         $img = fopen(storage().'/'.$path, 'r');
+        $img = imagecreatefrompng(200,100);
 
         //随机裁剪img, 记录坐标, session化
 
-
+        $image['bg'] = $bg;
+        $image['cut'] = $cut_img;
+        return $image;
 
     }
 }
