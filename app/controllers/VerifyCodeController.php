@@ -16,7 +16,7 @@ class VerifyCodeController extends BaseController{
 
     private $cut_left;
     private $cut_right;
-    private $cut_length;
+    private $cut_length = 20;
 
     //输出
     public function output()
@@ -67,6 +67,12 @@ class VerifyCodeController extends BaseController{
         $img = imagecreatefrompng(200,100);
 
         //随机裁剪img, 记录坐标, session化
+        
+        //获取图片长度
+        //获取图片高度
+        //创建两张画布
+        //cut
+        //储存
 
         $image['bg'] = $bg;
         $image['cut'] = $cut_img;
