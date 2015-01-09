@@ -68,8 +68,11 @@ class VerifyCodeController extends BaseController{
 
         //随机裁剪img, 记录坐标, session化
         
+        $size = getimagesize("storage().'/'.$path");
         //获取图片长度
+        $pic_length = $size[0];
         //获取图片高度
+        $pic_heigiht = $size[1];
         //创建两张画布
         //cut
         //储存
